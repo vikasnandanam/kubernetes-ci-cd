@@ -18,7 +18,7 @@ node {
     
     stage "Push"
         withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerhubpwd')]) {
-        sh "docker login -u nandanamvicky -p Qazwsx123$"
+        sh "docker login -u nandanamvicky -p Qazwsx123"
 
         sh "docker push ${imageName}"
 
