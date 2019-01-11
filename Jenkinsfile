@@ -16,11 +16,13 @@ node {
     
         sh "docker build -t ${imageName} -f applications/hello-kenzan/Dockerfile applications/hello-kenzan"
     
+    stage "Credentials"
+        withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerhubpwd')]) 
+        sh "docker login -u nandanamvicky -p Qazwsx123$"
+    
     stage "Push"
-        withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerhubpwd')]) {
-        sh "docker login -u nandanamvicky -p Qazwsx123"
-
         sh "docker push ${imageName}"
+        
 
     stage "Deploy"
 
