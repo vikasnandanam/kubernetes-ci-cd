@@ -16,7 +16,7 @@ node {
     
         sh "docker build -t ${imageName} -f applications/hello-kenzan/Dockerfile applications/hello-kenzan"
     
-    stage "Credentials"
+    stage "Push"
        
         sh "docker login -u nandanamvicky -p Qazwsx123"
         sh "docker push ${imageName}"
