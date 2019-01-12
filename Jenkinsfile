@@ -19,8 +19,6 @@ node {
     stage "Credentials"
        
         sh "docker login -u nandanamvicky -p Qazwsx123"
-    
-    stage "Push"
         sh "docker push ${imageName}"
         
 
